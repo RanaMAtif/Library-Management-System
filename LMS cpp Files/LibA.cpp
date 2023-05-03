@@ -72,7 +72,7 @@ void LibA::add_book()
     getline(cin, date);
     books_.push_back(Bookinfo(isbn, title, author, publisher, edition, year, category, subcategory, date, "", true));
     system("cls");
-    cout << "The book " << title << " has been added to the Library"<<endl;
+    cout << "The book " << title << " has been added to the Library" << endl;
 
 
 }
@@ -160,6 +160,7 @@ void LibA::donate_book()
     cout << "Enter Date:";
     getline(cin, date);
     books_.push_back(Bookinfo(isbn, title, author, publisher, edition, year, category, subcategory, date, "", true));
+    
     system("cls");
     cout << "The book " <<title<< " has been donated to the Library"<<endl;
 
