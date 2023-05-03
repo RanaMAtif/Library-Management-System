@@ -1,13 +1,15 @@
 #include<iostream>
 #include<string>
 #include<vector>
-#include"LibA.h"
-#include"Bookinfo.h"
-#include"Librarian.h"
-#include"Book.h"
-#include"User.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/library/LibA.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/book/Bookinfo.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/Person.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/book/Book.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/User.h"
 #include "LMS.h"
-#include"Donor.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/Donor.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/Librarian.h"
+
 using namespace std;
 int main()
 {

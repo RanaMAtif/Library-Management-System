@@ -11,7 +11,7 @@ public:
         string publisher, string edition, int year);
     
     
-   
+    
 protected:
     string isbn_;
     string title_;

@@ -1,8 +1,8 @@
 #include "LibA.h"
-#include"Bookinfo.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/book/Bookinfo.h"
 #include<string>
-#include"User.h"
-#include"Person.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/User.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/Person.h"
 
 
 LibA::LibA()

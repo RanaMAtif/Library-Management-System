@@ -1,6 +1,6 @@
 #include<iostream>
-#include"Bookinfo.h"
-#include"Book.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/book/Bookinfo.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/book/Book.h"
 #include<string>
 using namespace std;
 

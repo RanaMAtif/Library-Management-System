@@ -127,24 +127,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Book.cpp" />
-    <ClCompile Include="Bookinfo.cpp" />
-    <ClCompile Include="Donor.cpp" />
-    <ClCompile Include="LibA.cpp" />
-    <ClCompile Include="Librarian.cpp" />
     <ClCompile Include="LMS.cpp" />
-    <ClCompile Include="Person.cpp" />
-    <ClCompile Include="User.cpp" />
+    <ClCompile Include="src\book\Book.cpp" />
+    <ClCompile Include="src\book\Bookinfo.cpp" />
+    <ClCompile Include="src\library\LibA.cpp" />
+    <ClCompile Include="src\person\Donor.cpp" />
+    <ClCompile Include="src\person\Librarian.cpp" />
+    <ClCompile Include="src\person\Person.cpp" />
+    <ClCompile Include="src\person\User.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Book.h" />
-    <ClInclude Include="Bookinfo.h" />
-    <ClInclude Include="Donor.h" />
-    <ClInclude Include="LibA.h" />
-    <ClInclude Include="Librarian.h" />
     <ClInclude Include="LMS.h" />
-    <ClInclude Include="Person.h" />
-    <ClInclude Include="User.h" />
+    <ClInclude Include="src\book\Book.h" />
+    <ClInclude Include="src\book\Bookinfo.h" />
+    <ClInclude Include="src\library\LibA.h" />
+    <ClInclude Include="src\person\Donor.h" />
+    <ClInclude Include="src\person\Librarian.h" />
+    <ClInclude Include="src\person\Person.h" />
+    <ClInclude Include="src\person\User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

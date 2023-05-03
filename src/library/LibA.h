@@ -1,7 +1,7 @@
 #pragma once
-#include"Bookinfo.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/book/Bookinfo.h"
 #include<vector>
-#include"User.h"
+#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/User.h"
 
 
 class LibA
