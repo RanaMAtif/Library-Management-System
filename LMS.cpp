@@ -36,6 +36,7 @@ int main()
 			cout << "Enter your email: ";
 			getline(cin,user_email);
 			user_obj.set_email(user_email);
+			user_obj.write_in_file(user_name, user_email);
 			system("cls");
 			cout << "Welcome " << user_obj.get_name() << " your email is :" << user_obj.get_email() << endl;
 			int switch_choice{0}, loop_condition{0};
@@ -97,6 +98,7 @@ int main()
 			cout << "Enter your email:";
 			getline(cin, donor_email);
 			donor_obj.set_email(donor_email);
+			donor_obj.write_in_file(donor_name, donor_email);
 			system("cls");
 			cout << "Welcome  " << donor_obj.get_name() << " your email is :" << donor_obj.get_email() << endl;
 
@@ -127,6 +129,7 @@ int main()
 			getline(cin, librarian_email);
 			librarian_obj.set_email(librarian_email);
 			system("cls");
+		
 			
 				cout << "Enter Pasword: ";//Pasword = 123
 				cin >> librarian_password;
@@ -136,39 +139,50 @@ int main()
 			
 			
 			
+			
 			cout << librarian_obj.get_name()<<endl;
 			int librarian_switch_choice{0}, librarian_while_condition{0};
 			do
 			{
 
 			
-				cout << "To add a book press 1, to remove a book press 2, to lend a book press 3 :";
+				cout << "To add a book press 1, to remove a book press 2, to lend a book press 3, to see user's information press 4, to see donor's information press 5 : ";
 				cin >> librarian_switch_choice;
 				system("cls");
 				switch (librarian_switch_choice)
-					{
-					case 1:
-					{
-						cout << "Enter the deatils of the book that you want to add!!" << endl;
-						library_obj.add_book();
-					
-						break;
-					}
-					case 2:
-					{
-						library_obj.remove_book();
-						break;
-					}			
-					case 3:
-					{
-						library_obj.lend_book();
-						break;
-					}
-					default:
-					{
+				{
+				case 1:
+				{
+					cout << "Enter the deatils of the book that you want to add!" << endl;
+					library_obj.add_book();
+
+					break;
+				}
+				case 2:
+				{
+					library_obj.remove_book();
+					break;
+				}
+				case 3:
+				{
+					library_obj.lend_book();
+					break;
+				}
+				case 4:
+				{
+					librarian_obj.display_users();
+					break;
+				}
+				case 5:
+				{
+					librarian_obj.display_donors();
+					break;
+				}
+				default:
+				{
 						cout << "Invalid choice";
-					}
-					}
+				}
+				}
 			cout << "Press any key to contiue(-1 to exit Librarian mode):";
 			cin >> librarian_while_condition;
 			} 
