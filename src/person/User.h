@@ -9,7 +9,7 @@ private:
 public:
     User(string name, string email);
     User();
-
+    void write_in_file(string, string );
     
    
     

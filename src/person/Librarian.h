@@ -10,8 +10,8 @@ class Librarian : public Person
         int get_password();
         void set_pasword(int);
         void verify_pass(int);
-        
-        
+        void display_users();
+        void display_donors();
         
          
     private:

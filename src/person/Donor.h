@@ -8,9 +8,8 @@ private:
    
 public:
         Donor();
-        Donor(string name,string email); 
-        
-     
-        
+        Donor(string name,string email);  
+        void write_in_file(string, string );
 };
+
 

@@ -19,6 +19,7 @@ public:
 	void donate_book();
 	void search_book();
 	void show_borrowed_books(User);
+	void createFIle();
 
 private:
 	std::vector<Bookinfo>books_;

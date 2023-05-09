@@ -3,7 +3,9 @@
 #include<string>
 #include"/Users/Lenovo/source/repos/LMS/LMS/src/person/User.h"
 #include"/Users/Lenovo/source/repos/LMS/LMS/src/person/Person.h"
+#include<fstream>
 
+using namespace std;
 
 LibA::LibA()
 {
@@ -283,6 +285,10 @@ void LibA::borrow_book(User name)
 
     }
    
+}
+void LibA::createFIle()
+{
+
 }
 
 
