@@ -1,14 +1,14 @@
 #include<iostream>
 #include<string>
 #include<vector>
-#include"/Users/Lenovo/source/repos/LMS/LMS/src/library/LibA.h"
-#include"/Users/Lenovo/source/repos/LMS/LMS/src/book/Bookinfo.h"
-#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/Person.h"
-#include"/Users/Lenovo/source/repos/LMS/LMS/src/book/Book.h"
-#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/User.h"
-#include "LMS.h"
-#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/Donor.h"
-#include"/Users/Lenovo/source/repos/LMS/LMS/src/person/Librarian.h"
+#include"./src/library/LibA.h"
+#include"./src/book/Bookinfo.h"
+#include"./src/person/Person.h"
+#include"./src/book/Book.h"
+#include"./src/person/User.h"
+#include "./LMS.h"
+#include"./src/person/Donor.h"
+#include"./src/person/Librarian.h"
 
 using namespace std;
 int main()
@@ -18,6 +18,7 @@ int main()
 	{
 		LibA library_obj;
 		library_obj.display_name("Powersoft Library");
+		Bookinfo book;
 		
 
 		int choice{0};
@@ -26,59 +27,58 @@ int main()
 		system("cls");
 		if (choice == 1)
 		{
-			string user_name{}, user_email{};
+			string user_email{};
 			User user_obj;
-			cin.ignore();
-			cout << "User please Enter your name: ";
-			getline(cin, user_name);
-			user_obj.set_name(user_name);
 			cin.ignore();
 			cout << "Enter your email: ";
 			getline(cin,user_email);
 			user_obj.set_email(user_email);
-			user_obj.write_in_file(user_name, user_email);
 			system("cls");
-			cout << "Welcome " << user_obj.get_name() << " your email is :" << user_obj.get_email() << endl;
+			user_obj.write_in_file(user_email);
 			int switch_choice{0}, loop_condition{0};
 			do
 			{
-
-
-				cout << "Press 1 to search a book, press 2 to borrow a book, press 3 to see how many books you have borrowed, and press 4 to return a book : ";
+				cout << "Press 1 to see available books, press 2 to borrow a book,press 3 to see how many books you have borrowed, press 4 to return a book, or press 5 to search a book : ";
 				cin >> switch_choice;
 				switch (switch_choice)
 				{
 				case 1:
 				{
-					library_obj.search_book();
-					
-
-
+					system("cls");
+					book.display_Available_Books();
 					break;
 
 				}
 				case 2:
 				{
-					library_obj.borrow_book(user_obj);
+					system("cls");
+					book.borrow_Book(user_obj);
 					break;
 				}
 				case 3:
 				{
-					library_obj.show_borrowed_books(user_obj);
+					system("cls");
+					book.display_borrowed_Books(user_obj);
 					break;
 				}
 				case 4:
 				{
-					library_obj.return_book();
+					book.return_book();
+					break;
+				}
+				case 5:
+				{
+					system("cls");
+					book.search_Books();
 					break;
 				}
 
-				default:
+				 default:
 				{
 					cout << "Invalid Choice"<<endl;
 				}
 				}
-				cout << "Enter any key to continue(-1 if you are done):";
+			cout << "Enter any key to continue(-1 if you are done):";
 				cin >> loop_condition;
 				
 			}
@@ -87,106 +87,96 @@ int main()
 		}
 		if (choice == 2)
 		{
-			string donor_name{};
 			string donor_email{};
 			Donor donor_obj;
-			cin.ignore();
-			cout << "Donor please Enter your name:";
-			getline(cin, donor_name);
-			donor_obj.set_name(donor_name);
 			cin.ignore();
 			cout << "Enter your email:";
 			getline(cin, donor_email);
 			donor_obj.set_email(donor_email);
-			donor_obj.write_in_file(donor_name, donor_email);
+			
 			system("cls");
-			cout << "Welcome  " << donor_obj.get_name() << " your email is :" << donor_obj.get_email() << endl;
-
+			
+			donor_obj.write_in_file(donor_email);
 			
 			int donor_while_condition{0};
 			do
 			{
+				
 				cout << "Enter the details of the book that you want to donate";
-			   library_obj.donate_book();
+			   library_obj.donate_book(donor_obj);
+			   
 		    
 			cout << "Press -1 if you are done or any other key to donate another book:";
 				cin >> donor_while_condition; 
+				
+
 			} while (donor_while_condition != -1);
 			
 
 		}
 		if (choice == 3)
 		{
-			string librarian_name{}, librarian_email{};
-			int librarian_password;
+			string librarian_email{};
+		
 			Librarian librarian_obj;
-			cin.ignore();
-			cout << "Librarian please Enter your name: ";
-			getline(cin, librarian_name);
-			librarian_obj.set_name(librarian_name);
 			cin.ignore();
 			cout << "Enter your email: ";
 			getline(cin, librarian_email);
 			librarian_obj.set_email(librarian_email);
 			system("cls");
-		
+			bool access = librarian_obj.login(librarian_email);
 			
-				cout << "Enter Pasword: ";//Pasword = 123
-				cin >> librarian_password;
-				system("cls");
-				librarian_obj.set_pasword(librarian_password);
-				librarian_obj.verify_pass(librarian_password);
-			
-			
-			
-			
-			cout << librarian_obj.get_name()<<endl;
 			int librarian_switch_choice{0}, librarian_while_condition{0};
-			do
+			if (access == true)
 			{
+				do
+				{
 
-			
-				cout << "To add a book press 1, to remove a book press 2, to lend a book press 3, to see user's information press 4, to see donor's information press 5 : ";
-				cin >> librarian_switch_choice;
-				system("cls");
-				switch (librarian_switch_choice)
-				{
-				case 1:
-				{
-					cout << "Enter the deatils of the book that you want to add!" << endl;
-					library_obj.add_book();
+					cout << "Press 1 to add book, press 2 to remove book, press 3 for users information, press 4 for donors infomation, press 5 for books information  : ";
+					cin >> librarian_switch_choice;
+					system("cls");
+					switch (librarian_switch_choice)
+					{
+					case 1:
+					{
+						cout << "Enter the deatils of the book that you want to add!" << endl;
+						library_obj.add_book();
 
-					break;
-				}
-				case 2:
-				{
-					library_obj.remove_book();
-					break;
-				}
-				case 3:
-				{
-					library_obj.lend_book();
-					break;
-				}
-				case 4:
-				{
-					librarian_obj.display_users();
-					break;
-				}
-				case 5:
-				{
-					librarian_obj.display_donors();
-					break;
-				}
-				default:
-				{
+						break;
+					}
+					case 2:
+					{
+						library_obj.remove_book();
+						break;
+					}
+					case 3:
+					{
+						librarian_obj.display_users();
+						break;
+					}
+					case 4:
+					{
+						librarian_obj.display_donors();
+						break;
+					}
+					case 5:
+					{
+						librarian_obj.all_Books_information();
+						break;
+					}
+					default:
+					{
 						cout << "Invalid choice";
-				}
-				}
-			cout << "Press any key to contiue(-1 to exit Librarian mode):";
-			cin >> librarian_while_condition;
-			} 
-			while (librarian_while_condition != -1);
+					}
+					}
+					cout << "Press any key to contiue(-1 to exit Librarian mode):";
+					cin >> librarian_while_condition;
+				} while (librarian_while_condition != -1);
+			}
+			else if (access==false)
+			{
+				exit(0);
+			}
 		}
 		cout << "Press any number to continue (-1 to exit library)";
 			cin >> main_while_condition;

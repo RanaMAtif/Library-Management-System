@@ -7,8 +7,8 @@ class Book
 {
 public:
     Book();
-    Book(string isbn, string title, string authors,
-        string publisher, string edition, int year);
+    Book(string , string, string,
+        string , string, int );
     
     
     
